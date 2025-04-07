@@ -8,44 +8,16 @@ use App\Http\Requests\UpdateToolRequest;
 
 class ToolController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+  
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreToolRequest $request)
     {
-        //
-    }
+        $tool = Tool::create($request->validated());
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Tool $tool)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Tool $tool)
-    {
-        //
+        return redirect()->route('home')->with('success', 'Tool created successfully');
     }
 
     /**
@@ -53,7 +25,9 @@ class ToolController extends Controller
      */
     public function update(UpdateToolRequest $request, Tool $tool)
     {
-        //
+        $tool->update($request->validated());
+
+        return redirect()->route('home')->with('success', 'Tool updated successfully'); 
     }
 
     /**
@@ -61,6 +35,8 @@ class ToolController extends Controller
      */
     public function destroy(Tool $tool)
     {
-        //
+        $tool->delete();
+
+        return redirect()->route('home')->with('success', 'Tool deleted successfully');
     }
 }
