@@ -16,4 +16,14 @@ class User extends Model
         'profile_image',
         'bio',
     ];
+
+    public function tools()
+    {
+        return $this->belongsToMany(Tool::class);
+    }
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
 }

@@ -21,4 +21,9 @@ class Tool extends Model
     {
         return $this->belongsToMany(Project::class, 'project_tools');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

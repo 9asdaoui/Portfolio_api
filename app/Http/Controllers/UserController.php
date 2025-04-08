@@ -15,8 +15,17 @@ class UserController extends Controller
      */
     public function getUser()
     {
-        $users = User::all();
-        return response()->json($users);
+        $users = User::take(1)->get();
+        $tools = \App\Models\Tool::all();
+        
+        
+        $response = [
+            'users' => $users,
+            'tools' => $tools
+        ];
+        
+        return response()->json($response);
+
     }
 
     /**

@@ -18,7 +18,7 @@ use App\Http\Controllers\MessageController;
 */
 
 // User routes
-Route::get('/users', [UserController::class, 'getUser']);
+Route::get('/profile', [UserController::class, 'getUser']);
 
 // Project routes
 Route::get('/projects', [ProjectController::class, 'index']);
